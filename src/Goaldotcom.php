@@ -103,7 +103,10 @@ class Goaldotcom implements CrawlerInterface
             
             //  $teaser=$dom->find('div.teaser',1);
             $teaser=$dom->find('div[class=teaser]',0);
-            $teaser=$teaser->plaintext;
+            if($teaser){
+                $teaser=$teaser->plaintext;
+            
+            }
 
             $bodys=$dom->find('div.body p');
             $image = $dom->find('div img',2);
@@ -130,7 +133,7 @@ class Goaldotcom implements CrawlerInterface
            return  $this->article=['body'=>$this->body,
                                 'img'=>$this->image?? "null",
                                 'title'=>$title??'null',
-                                'teaser'=>$teaser,
+                                'teaser'=>$teaser ??'null',
                                 'full_url'=>$url,
                                 'domain'  => $this->get_domainof_link($url),
 

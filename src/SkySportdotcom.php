@@ -90,8 +90,8 @@ class SkySportdotcom implements CrawlerInterface
                  
             return  $this->article=['body'=>$this->body,
                                 'img'=>$image ??'null',
-                                'title'=>$title,
-                                'teaser'=>$teaser,
+                                'title'=>$title ??'null',
+                                'teaser'=>$teaser ??'null',
                                 'full_url'=>$url,
                                 'domain'  => $this->get_domainof_link($url),
 
