@@ -40,8 +40,8 @@ class ArticleCrawlerJob implements ShouldQueue
     {
         
 
-        if(!$id=CrawledPage::where('full_url',$this->link)->get()->take(1)){
-
+        if(CrawledPage::where('full_url',$this->link)->get()!=null){
+            
         }else{
 
             $userEnd=new CrawlerUserEnd();
