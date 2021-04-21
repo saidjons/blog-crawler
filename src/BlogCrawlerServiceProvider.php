@@ -35,7 +35,7 @@ class BlogCrawlerServiceProvider extends ServiceProvider
     public function register()
     {
             $this->commands([
-            Saidjons\BlogCrawler\Commands\GetNews::class
+            \Saidjons\BlogCrawler\Commands\GetNews::class
         ]);
 
         // Automatically apply the package configuration
