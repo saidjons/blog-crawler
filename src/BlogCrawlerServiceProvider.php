@@ -23,22 +23,7 @@ class BlogCrawlerServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__.'/../config/config.php' => config_path('blog-crawler.php'),
             ], 'config');
-
-            // Publishing the views.
-            /*$this->publishes([
-                __DIR__.'/../resources/views' => resource_path('views/vendor/blog-crawler'),
-            ], 'views');*/
-
-            // Publishing assets.
-            /*$this->publishes([
-                __DIR__.'/../resources/assets' => public_path('vendor/blog-crawler'),
-            ], 'assets');*/
-
-            // Publishing the translation files.
-            /*$this->publishes([
-                __DIR__.'/../resources/lang' => resource_path('lang/vendor/blog-crawler'),
-            ], 'lang');*/
-
+    require_once(__DIR__.'/Helper/helper.php');
             // Registering package commands.
             // $this->commands([]);
         }
