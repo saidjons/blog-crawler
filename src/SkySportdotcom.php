@@ -61,13 +61,20 @@ class SkySportdotcom implements CrawlerInterface
              $dom = HtmlDomParser::file_get_html($url);
              
              $title=$dom->find('h1',0);
-             $title=$title->plaintext;
+             if($title){
+                $title=$title->plaintext;
+             }
              $teaser=$dom->find('p',1);
-             $teaser=$teaser->plaintext;
+             if($teaser){
+                $teaser=$teaser->plaintext;
+             
+             }
              
              $bodys=$dom->find('div.sdc-article-body > p');
              $image = $dom->find('div img.sdc-article-image__item',0);
-             $image=$image->src;
+             if($image){
+              $image=$image->src;
+             }
             //  $this->set_img_src($image->src);
              
               
@@ -82,7 +89,7 @@ class SkySportdotcom implements CrawlerInterface
              // $this->get_metas($url);
                  
             return  $this->article=['body'=>$this->body,
-                                'img'=>$image,
+                                'img'=>$image ??'null',
                                 'title'=>$title,
                                 'teaser'=>$teaser,
                                 'full_url'=>$url,

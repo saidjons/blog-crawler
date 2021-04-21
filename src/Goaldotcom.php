@@ -90,7 +90,10 @@ class Goaldotcom implements CrawlerInterface
             
       
             $title=$dom->find('h1[class=article-headline] ',0);
+            if($title){
+            
             $title=$title->plaintext;
+            }
             if (!isset($title)) {
                 
                   $title=$dom->find('.article-header',1);
@@ -125,8 +128,8 @@ class Goaldotcom implements CrawlerInterface
              */
 
            return  $this->article=['body'=>$this->body,
-                                'img'=>$this->image,
-                                'title'=>$title,
+                                'img'=>$this->image?? "null",
+                                'title'=>$title??'null',
                                 'teaser'=>$teaser,
                                 'full_url'=>$url,
                                 'domain'  => $this->get_domainof_link($url),
