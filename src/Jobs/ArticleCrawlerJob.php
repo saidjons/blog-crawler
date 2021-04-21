@@ -40,9 +40,7 @@ class ArticleCrawlerJob implements ShouldQueue
     {
         
 
-        if(CrawledPage::where('full_url',$this->link)->get()){
-
-        }else{
+        if(count(CrawledPage::where('full_url',$this->link)->get())==0){
 
             $userEnd=new CrawlerUserEnd();
             $this->article=$userEnd->single($this->domain,$this->link);
@@ -59,6 +57,8 @@ class ArticleCrawlerJob implements ShouldQueue
            $model->save();
 
            
+        }else{
+
              
         } 
 
